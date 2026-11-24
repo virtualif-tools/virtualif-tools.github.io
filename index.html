@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VirtualIF Tools — Lançar notas e mais...</title>
+  <meta
+    name="description"
+    content="Extensão para Google Chrome (Manifest V3) que agiliza o lançamento de notas no VirtualIF a partir de planilhas, destaca registros da chamada (F, I, E) e restaura as cores clássicas dos módulos."
+  />
+  <link rel="icon" type="image/png" sizes="48x48" href="public/img/icon48.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="public/img/icon128.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#topo" class="brand" aria-label="VirtualIF Tools - Início">
+        <img src="public/img/icon48.png" alt="Ícone VirtualIF Tools" class="brand-icon" width="36" height="36" />
+        <div class="brand-text">
+          <span class="brand-name">VirtualIF Tools</span>
+          <span class="brand-tag">IFTM • Extensão Chrome</span>
+        </div>
+      </a>
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+        aria-controls="siteNav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="#recursos">Recursos</a>
+        <a href="#como-usar">Como Usar</a>
+        <a href="#instalacao">Instalação</a>
+        <a href="#privacidade">Privacidade</a>
+        <a href="#sobre">Sobre</a>
+        <a
+          href="https://chromewebstore.google.com/detail/virtualif-tools-lan%C3%A7ar-no/ejhcdmfpnagjdbpdeffhebaknodgpoep?hl=pt-br"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-sm btn-primary"
+        >
+          Instalar no Chrome
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="pill-row">
+            <span class="pill pill-green">Manifest V3</span>
+            <span class="pill pill-neutral">Versão 1.0.0</span>
+            <span class="pill pill-neutral">virtualif.iftm.edu.br</span>
+          </div>
+
+          <h1>Lançar notas no VirtualIF em segundos, direto da sua planilha.</h1>
+
+          <p class="hero-lead">
+            O <strong>VirtualIF Tools</strong> é uma extensão para Google Chrome criada para
+            professores do IFTM. Cole dados do Google Planilhas, Excel ou CSV, confira a
+            pré-visualização e preencha automaticamente as notas no diário — além de destacar
+            faltas na chamada e restaurar as cores clássicas dos módulos.
+          </p>
+
+          <div class="hero-actions">
+            <a
+              href="https://chromewebstore.google.com/detail/virtualif-tools-lan%C3%A7ar-no/ejhcdmfpnagjdbpdeffhebaknodgpoep?hl=pt-br"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-lg"
+            >
+              Instalar na Chrome Web Store
+            </a>
+            <a href="#recursos" class="btn btn-secondary btn-lg">
+              Explorar Recursos
+            </a>
+          </div>
+
+          <ul class="hero-highlights">
+            <li>
+              <span class="check-dot" aria-hidden="true">✓</span>
+              <span>Processamento 100% local no navegador</span>
+            </li>
+            <li>
+              <span class="check-dot" aria-hidden="true">✓</span>
+              <span>Correspondência tolerante a maiúsculas e acentos</span>
+            </li>
+            <li>
+              <span class="check-dot" aria-hidden="true">✓</span>
+              <span>Disparo nativo de eventos do VirtualIF</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="screenshot-frame">
+            <div class="window-bar" aria-hidden="true">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="window-title">VirtualIF Tools — Popup da Extensão</span>
+            </div>
+            <button
+              type="button"
+              class="screenshot-zoom-btn"
+              id="openLightbox"
+              aria-label="Ampliar captura de tela da extensão ativa"
+            >
+              <img
+                src="public/img/extensao_ativa.png"
+                alt="Captura de tela da extensão VirtualIF Tools ativa no navegador"
+                class="screenshot-img"
+              />
+              <span class="zoom-hint">Clique para ampliar</span>
+            </button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recursos Principais -->
+    <section id="recursos" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">O que a extensão faz</span>
+          <h2>Três frentes para agilizar o dia a dia docente</h2>
+          <p>
+            Cada funcionalidade pode ser ativada ou ajustada diretamente pelo popup da extensão,
+            com persistência automática das preferências.
+          </p>
+        </div>
+
+        <div class="cards-grid cards-3">
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-green" aria-hidden="true">📊</div>
+            <h3>1. Lançamento Automático de Notas</h3>
+            <p>
+              Substitui macros manuais: cole linhas com <code>Nome</code> e <code>Nota</code> do
+              Google Planilhas, Excel ou CSV e preencha os campos do VirtualIF em um clique.
+            </p>
+            <ul class="feature-list">
+              <li>Separador configurável (<code>Tab</code>, <code>;</code>, <code>,</code>, <code>|</code>, espaço ou personalizado)</li>
+              <li>Opção para ignorar a 1ª linha (cabeçalho)</li>
+              <li>Pré-visualização em tabela antes de aplicar</li>
+              <li>Relatório de alunos preenchidos e não encontrados</li>
+              <li>Botão extra para copiar o script JS equivalente</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-blue" aria-hidden="true">🎨</div>
+            <h3>2. Destaques Visuais na Chamada</h3>
+            <p>
+              Facilita a leitura rápida do diário de frequência destacando automaticamente os códigos
+              especiais nos campos de chamada, inclusive em atualizações via AJAX.
+            </p>
+            <div class="chamada-demo" id="chamadaDemo">
+              <div class="chamada-row">
+                <span class="chamada-badge badge-f" data-type="F">F</span>
+                <div>
+                  <strong>Faltas</strong>
+                  <small>Destaque em vermelho de alto contraste</small>
+                </div>
+                <label class="mini-switch">
+                  <input type="checkbox" checked data-toggle-chamada="F" />
+                  <span>Ativo</span>
+                </label>
+              </div>
+              <div class="chamada-row">
+                <span class="chamada-badge badge-i" data-type="I">I</span>
+                <div>
+                  <strong>Abonos institucionais</strong>
+                  <small>Destaque em azul</small>
+                </div>
+                <label class="mini-switch">
+                  <input type="checkbox" checked data-toggle-chamada="I" />
+                  <span>Ativo</span>
+                </label>
+              </div>
+              <div class="chamada-row">
+                <span class="chamada-badge badge-e" data-type="E">E</span>
+                <div>
+                  <strong>Estudos domiciliares</strong>
+                  <small>Destaque em âmbar</small>
+                </div>
+                <label class="mini-switch">
+                  <input type="checkbox" checked data-toggle-chamada="E" />
+                  <span>Ativo</span>
+                </label>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon feature-icon-amber" aria-hidden="true">🧩</div>
+            <h3>3. Ícones Clássicos dos Módulos</h3>
+            <p>
+              Restaura as cores tradicionais dos botões circulares na página inicial do VirtualIF
+              (<code>Colorir ícones estilo antigo</code>), facilitando a identificação visual rápida.
+            </p>
+            <div class="modules-preview" aria-label="Exemplos de módulos coloridos">
+              <span class="mod-chip mod-diario">DIÁRIO ELETRÔNICO</span>
+              <span class="mod-chip mod-moodle">MOODLE</span>
+              <span class="mod-chip mod-disco">DISCO VIRTUAL</span>
+              <span class="mod-chip mod-bib">BIBLIOTECA</span>
+              <span class="mod-chip mod-proj">PROJETOS</span>
+              <span class="mod-chip mod-serv">SERVIDOR ONLINE</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona a correspondência + Simulador -->
+    <section class="section">
+      <div class="container">
+        <div class="matcher-layout">
+          <div class="matcher-info">
+            <span class="eyebrow">Correspondência Inteligente</span>
+            <h2>Menos erros por acentos, maiúsculas ou espaços</h2>
+            <p>
+              Listas exportadas de planilhas nem sempre têm a grafia idêntica à do VirtualIF. Os
+              filtros de correspondência normalizam os nomes antes de comparar cada aluno:
+            </p>
+            <ul class="detail-list">
+              <li>
+                <strong>Ignorar maiúsculas e minúsculas:</strong>
+                <code>MARIA SILVA</code> corresponde a <code>Maria Silva</code>.
+              </li>
+              <li>
+                <strong>Ignorar acentos e caracteres especiais:</strong>
+                <code>João Conceição</code> corresponde a <code>Joao Conceicao</code>.
+              </li>
+              <li>
+                <strong>Normalizar espaços extras:</strong>
+                remove espaços duplicados entre palavras e nas extremidades.
+              </li>
+              <li>
+                <strong>Integração nativa com o VirtualIF:</strong>
+                injeta no contexto da página (<code>MAIN</code> world) e dispara
+                <code>jQuery(input).blur()</code> para garantir que o sistema valide e grave a nota.
+              </li>
+            </ul>
+          </div>
+
+          <div class="matcher-sandbox card-surface">
+            <div class="sandbox-header">
+              <span>Simulador de Parser &amp; Filtros</span>
+              <span class="sandbox-badge" id="sandboxCount">3 alunos</span>
+            </div>
+            <label for="sandboxInput" class="sandbox-label">
+              Cole ou edite pares <code>Nome[Tab ou ;]Nota</code>:
+            </label>
+            <textarea id="sandboxInput" rows="4" spellcheck="false">JOÃO DA SILVA	9,5
+maria   eduarda souza;8.0
+Pedro Henrique	10</textarea>
+            <div class="sandbox-options">
+              <label><input type="checkbox" id="simCase" checked /> Ignorar maiúsculas</label>
+              <label><input type="checkbox" id="simAccents" checked /> Ignorar acentos</label>
+              <label><input type="checkbox" id="simSpaces" checked /> Normalizar espaços</label>
+            </div>
+            <div class="sandbox-table-wrap">
+              <table class="sandbox-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nome Normalizado</th>
+                    <th>Nota</th>
+                  </tr>
+                </thead>
+                <tbody id="sandboxBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Passo a Passo -->
+    <section id="como-usar" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Fluxo de Trabalho</span>
+          <h2>Como lançar notas em 4 passos</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">1</span>
+            <h3>Abra o diário no VirtualIF</h3>
+            <p>
+              Acesse a tela de lançamento de notas da turma desejada em
+              <code>virtualif.iftm.edu.br</code>.
+            </p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">2</span>
+            <h3>Copie da sua planilha</h3>
+            <p>
+              Selecione as colunas de <strong>Nome</strong> e <strong>Nota</strong> no Google
+              Planilhas ou Excel e pressione <code>Ctrl+C</code>.
+            </p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">3</span>
+            <h3>Cole e confira</h3>
+            <p>
+              Abra o ícone da extensão, cole os dados, ajuste o separador se necessário e confira
+              a tabela de pré-visualização.
+            </p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">4</span>
+            <h3>Preencha automaticamente</h3>
+            <p>
+              Clique em <strong>Preencher Notas no VirtualIF</strong> e veja o resumo de notas
+              lançadas e eventuais pendências.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instalação -->
+    <section id="instalacao" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Instalação Oficial</span>
+          <h2>Instale pela Chrome Web Store</h2>
+          <p>
+            A extensão está disponível oficialmente na Chrome Web Store para Google Chrome e
+            navegadores baseados em Chromium (Edge, Brave, Opera).
+          </p>
+        </div>
+
+        <div class="install-grid">
+          <div class="install-steps card-surface">
+            <ol class="numbered-list">
+              <li>
+                <strong>Acesse a página oficial na Chrome Web Store</strong>
+                <span>Clique no botão abaixo para abrir o VirtualIF Tools diretamente na loja do Chrome.</span>
+              </li>
+              <li>
+                <strong>Clique em "Usar no Chrome"</strong>
+                <span>Confirme a adição da extensão quando solicitado pelo navegador.</span>
+              </li>
+              <li>
+                <strong>Fixe na barra do navegador</strong>
+                <span>Clique no ícone de extensões (quebra-cabeça) e fixe o <strong>VirtualIF Tools</strong> para acesso rápido ao abrir o VirtualIF.</span>
+              </li>
+            </ol>
+
+            <div class="install-cta">
+              <a
+                href="https://chromewebstore.google.com/detail/virtualif-tools-lan%C3%A7ar-no/ejhcdmfpnagjdbpdeffhebaknodgpoep?hl=pt-br"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary btn-lg"
+              >
+                Abrir na Chrome Web Store
+              </a>
+            </div>
+
+            <details class="manual-install">
+              <summary>Instalação manual (modo desenvolvedor)</summary>
+              <ol class="manual-list">
+                <li>Baixe ou extraia a pasta da extensão contendo o <code>manifest.json</code>.</li>
+                <li>Acesse <code>chrome://extensions/</code> e ative o <strong>Modo do desenvolvedor</strong>.</li>
+                <li>Clique em <strong>Carregar sem compactação</strong> (<em>Load unpacked</em>) e selecione a pasta do projeto.</li>
+              </ol>
+            </details>
+          </div>
+
+          <aside class="install-aside card-surface">
+            <div class="aside-icon-wrap">
+              <img src="public/img/icon128.png" alt="Ícone VirtualIF Tools 128px" width="72" height="72" />
+            </div>
+            <h3>Requisitos &amp; Compatibilidade</h3>
+            <ul class="compat-list">
+              <li><strong>Navegadores:</strong> Google Chrome, Microsoft Edge, Brave (baseados em Chromium)</li>
+              <li><strong>Padrão:</strong> Chrome Extensions Manifest V3</li>
+              <li><strong>Domínio ativo:</strong> <code>https://virtualif.iftm.edu.br/*</code></li>
+              <li><strong>Versão atual:</strong> <code>1.0.0</code></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacidade e Permissões -->
+    <section id="privacidade" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Transparência &amp; Segurança</span>
+          <h2>Privacidade e permissões utilizadas</h2>
+          <p>
+            Nenhum dado de aluno ou nota é enviado para servidores externos. Todo o processamento
+            ocorre localmente no seu navegador.
+          </p>
+        </div>
+
+        <div class="cards-grid cards-2">
+          <div class="card-surface info-box">
+            <h3>Permissões no <code>manifest.json</code></h3>
+            <ul class="perm-list">
+              <li>
+                <code>activeTab</code> &amp; <code>scripting</code>
+                <span>Necessárias para ler os campos de notas da aba aberta do VirtualIF e preencher os valores no contexto da página.</span>
+              </li>
+              <li>
+                <code>storage</code>
+                <span>Salva localmente suas preferências de separador, filtros e destaques da chamada.</span>
+              </li>
+              <li>
+                <code>declarativeContent</code>
+                <span>Mantém a extensão contextualizada ao uso no portal do VirtualIF.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-surface info-box">
+            <h3>Escopo restrito ao VirtualIF</h3>
+            <p class="box-text">
+              Os scripts de conteúdo (<code>virtualif-chamada.js</code>,
+              <code>virtualif-bridge.js</code> e folhas de estilo) são executados exclusivamente em
+              páginas sob <code>https://virtualif.iftm.edu.br/*</code>.
+            </p>
+            <p class="box-text">
+              A extensão não coleta telemetria, não armazena credenciais e não realiza requisições
+              externas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre o Desenvolvedor -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <div class="dev-card card-surface">
+          <img
+            src="public/img/logo_professor_danilo.png"
+            alt="Logo Professor Danilo S. Almeida"
+            class="dev-logo"
+          />
+          <div class="dev-info">
+            <span class="eyebrow">Desenvolvimento</span>
+            <h2>Professor Danilo S. Almeida</h2>
+            <p class="dev-inst">IFTM — Campus Paracatu</p>
+            <p class="dev-bio">
+              Projeto criado para otimizar a rotina de lançamento de notas e acompanhamento de
+              frequência no VirtualIF, reduzindo trabalho manual repetitivo e evitando erros de
+              digitação.
+            </p>
+            <div class="dev-links">
+              <a href="mailto:daniloalmeida@iftm.edu.br" class="btn btn-secondary">
+                daniloalmeida@iftm.edu.br
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="public/img/icon16.png" alt="" width="16" height="16" />
+        <span>VirtualIF Tools • v1.0.0</span>
+      </div>
+      <p class="footer-note">
+        Desenvolvido por Professor Danilo S. Almeida (IFTM — Campus Paracatu). Projeto independente,
+        sem vínculo oficial com a manutenção institucional do VirtualIF.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lightbox para o print da extensão -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Captura de tela ampliada" hidden>
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="closeLightbox" aria-label="Fechar imagem">
+        &times;
+      </button>
+      <img
+        src="public/img/extensao_ativa.png"
+        alt="Captura de tela ampliada da extensão VirtualIF Tools"
+      />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
